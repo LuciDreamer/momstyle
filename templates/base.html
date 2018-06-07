@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block title %}
+        <title>MOM'style</title>
+    {% endblock %}
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- own css file -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    {% block css %}
+
+    {% endblock %}
+
+    <!-- main font -->
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <!-- cart form font -->
+    <link href="https://fonts.googleapis.com/css?family=Podkova" rel="stylesheet">
+
+    <style>
+        body{
+            background-image: url("{% static 'png/2-fon-dlya-sayta.png' %}");
+            background-repeat: repeat;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+
+
+    <!-- navigation panel -->
+    <div class="container navbar-container">
+        <!-- navbar bottom -->
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'png/logo.png' %}" height="50" class="d-inline-block align-top" alt="">
+        </a>
+        <!-- brand -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbartoggle"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbartoggle">
+            <!-- toggle content -->
+
+            <ul class="navbar-nav mr-auto">
+                <!-- links -->
+                <li class="nav-item">
+                    <a class="nav-link main-color" href="{% url 'index' %}">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link main-color" href="{% url 'catalog' %}">Каталог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link main-color" href="{% url 'about_us' %}">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link main-color" href="{% url 'faq' %}">Инфо</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mr-auto">
+                <!-- links -->
+                <li class="nav-item">
+                    <a class="nav-link main-color" href="#">
+                        <img src="{% static 'png/vk.png' %}" alt="vk">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link main-color" href="{% url 'catalog' %}">
+                        <img src="{% static 'png/insta.png' %}" alt="">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link main-color">79936737287</span>
+                </li>
+
+            </ul>
+
+            <div class="cart mr-lg-4">
+                <!-- cart -->
+                {% block cart %}
+                
+                {% endblock %}
+
+            </div>
+
+        </div>
+
+        <!-- end navbar bottom -->
+    </div>
+
+
+    <!-- end navigation panel -->
+</nav>
+
+{% block content %}
+
+{% endblock %}
+
+<div class="connect">
+    <div class="connect-form d-none">
+        <span>Введите свой номер телефона и наш менеджер обязательно с Вами свяжется!</span><br>
+        <input type="text" placeholder="79001234567"><br>
+        <input type="text" placeholder="Имя"><br>
+        <button class="connect-form-submit" type="submit">Связаться</button>
+
+    </div>
+    <div class="connect-btn">
+        <img class="img-fluid phone-img" src="{% static 'png/smartphone.png' %}" alt="">
+    </div>
+
+
+</div>
+
+<div class="container up">
+    <a href="#">
+        <img src="{% static 'png/up-arrow.png' %}" alt="Наверх">
+    </a>
+
+</div>
+
+<br>
+
+{% block footer %}
+
+{% endblock %}
+
+
+<!-- jquery and ajax -->
+
+<script src="{% static 'js/jquery/jquery-3.3.1.min.js' %}"></script>
+
+<!-- jquery plugins -->
+<script src="{% static 'js/base.js' %}"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+{% block js %}
+
+{% endblock %}
+
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+/*main css*/
+.main-container{
+    background-color: var(background-pink);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.col-sm-6{
+    padding: 0;
+}
+/*end main css*/
+
+/*===== Product =====*/
+
+/*procut image*/
+.image-container{
+    padding-left: 2rem;
+    color: rgba(0,0,0,0.54);
+}
+
+.product-image {
+    height: 30rem;
+}
+/*end product image*/
+
+
+/*title cont*/
+.product-title-cont{
+    padding: 0.5rem;
+}
+
+/*end title cont*/
+
+
+/*price cont*/
+.price-cont{
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+}
+
+.prev-price{
+    color: rgb(111, 111, 111);
+    font-size: 1rem;
+    text-decoration: line-through;
+}
+
+.pr-price{
+    font-size: 1.7rem;
+}
+
+.availability-cont{
+    text-align: center;
+}
+
+.availability{
+    line-height: inherit;
+}
+/*end price cont*/
+
+
+/*description container*/
+.desc-cont{
+    padding: 0.5rem;
+
+}
+
+.links-cont{
+
+}
+.nav-link:hover{
+    color:rgba(0,0,0,0.54);
+}
+
+.desc-link{
+    display: inline-block;
+    padding: 0.3rem;
+    cursor: pointer;
+}
+
+.desc-link:hover{
+}
+
+.desc-item{
+    padding: 0.5rem;
+    color: rgba(0,0,0,0.54);
+    background-color: rgba(255, 255, 255, 0.71);
+}
+/*end description container*/
+
+
+/*input block*/
+.form-block{
+    padding: 1rem;
+}
+.form-img{
+    margin-left: 0.3rem;
+}
+
+.size-block{
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.size-input{
+    height: 1.8rem;
+    width: 7rem;
+    font-size: 0.9rem;
+}
+
+.quantity-block{
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+
+.number-input{
+    padding-left: 0.3rem;
+    height: 1.8rem;
+    width: 3rem;
+    font-size: 0.9rem;
+}
+
+.cart-btn{
+    height: 3rem;
+    width: 20rem;
+    border: none !important;
+    cursor: pointer;
+    background-color: rgba(219, 87, 119, 0.5);
+    color: white;
+
+}
+.cart-btn:hover{
+    background-color: rgba(219, 87, 119, 0.8);
+}
+/* end input block*/
+
+
+/*suggestions*/
+.suggestions-container{
+    background-color: rgba(255, 255, 255, 0.71);
+}
+
+.product-cell{
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.product-cell:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    z-index: 20;
+}
+
+.product-link:hover{
+    text-decoration: none;
+}
+
+.products-card-caption{
+    border: none;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.product-name{
+    color: rgba(0,0,0,0.54);
+}
+
+.products-category-name{
+    text-decoration: none;
+    color: rgba(0,0,0,0.54);
+}
+
+.price{
+    color: rgba(255,82,82,0.87);
+}
+/*end suggestions*/

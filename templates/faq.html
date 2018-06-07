@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>FAQ</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/faq.css' %}">
+{% endblock %}
+
+{% block cart %}
+    <a class="cart_link" href="{% url 'cart' %}">
+        <img src="{% static 'png/shopping-bag.png' %}" alt="">
+        <button class="items-count">{{ cart }}</button>
+    </a>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="question_container">
+            {% for faq in faq %}
+                <a class="question" href="#">{{ faq.question }}</a>
+                <p class="answer disp_none">{{ faq.answer }}</p>
+                <br>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/faq.js' %}"></script>
+{% endblock %}

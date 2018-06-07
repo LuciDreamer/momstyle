@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>Корзина</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container main-container">
+        <h2>Корзина покупателя</h2>
+
+        <table class="table cart-table">
+              <thead>
+                    <tr>
+                      <th class="col-name" scope="col">Название</th>
+                      <th class="col-name" scope="col">Цена</th>
+                      <th class="col-name" scope="col">Размер</th>
+                      <th class="col-name" scope="col">Кол-во</th>
+                      <th class="col-name" scope="col"></th>
+                    </tr>
+              </thead>
+              <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                      <th class="item-name" scope="row">
+                          <a href="{% url 'product-detail' item.product_id %}">
+                              {{ item.product_name }}
+                          </a>
+                      </th>
+                      <td class="price">{{ item.price }}</td>
+                      <td class="price">{{ item.size }}</td>
+                      <td class="quantity">
+                          <button class="decrease quantity-btn"
+                                  data-url="{% url 'set_quantity' %}"
+                                  data-id="{{ item.product_id }}"
+                                  data-size="{{ item.size }}">-
+                          </button>
+                          <input class="quantity-input" value="{{ item.quantity }}">
+                          <button class="increase quantity-btn"
+                                  data-url="{% url 'set_quantity' %}"
+                                  data-id="{{ item.product_id }}"
+                                  data-size="{{ item.size }}">+
+                          </button>
+                      </td>
+                      <td>
+                          <a class="delete-item"
+                             data-id="{{ item.product_id }}"
+                             data-size="{{ item.size }}"
+                             href="{% url 'delete_item' %}">x</a>
+                      </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th>Корзина пуста</th>
+                    </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+
+
+
+        <h4 class="summary" align="right">Итого: <span class="total-price">{{ total_price }}</span> руб.</h4>
+
+        <button class="pre_order" href="#">Оформить заказ</button>
+
+    </div>
+
+    <div class="modal-container ">
+        <div class="order-form">
+            <a class="close-btn" href="#">Закрыть</a>
+            <span class="label">Контактное лицо</span>
+            <input class="order-input input-name" type="text" placeholder="Ольга Иванова">
+            <span class="label">Номер телефона</span>
+            <input class="order-input input-phone" type="text" placeholder="7900000000">
+            <span class="label">Город</span>
+            <input class="order-input input-phone" type="text" placeholder="7900000000">
+            <a class="order-btn" href="{% url 'order' %}">Заказать</a>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/cart.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,14 @@
+
+.disp_none{
+    display: none;
+}
+.question{
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.answer{
+    padding: 1rem;
+    border: 1px solid #D8DBDE;
+    margin-bottom: 0;
+}

@@ -1,0 +1,174 @@
+.breaker-cont{
+    margin-bottom: 2rem;
+}
+.breaker{
+    color: #D8DBDE;
+}
+/*carousel*/
+.crsl-container{
+    padding: 0;
+
+}
+#crsl{
+    max-height: 700px;
+    text-align: center;
+    margin-bottom: 2rem;
+
+}
+
+.crsl-indc:hover{
+    background-color: rgba(255, 255, 255, 0.31);
+}
+
+.crsl-image{
+    max-height: 700px;
+    width: inherit;
+}
+.crsl-disabled{
+    display: none;
+}
+.carousel-caption{
+    margin-bottom: 5rem;
+}
+
+.carousel-tagline{
+    margin-bottom: 3rem;
+    font-size: 3rem;
+}
+
+.crsl-btn{
+    padding: 0.3rem;
+    width: 4rem;
+    color: white;
+    border: 3px solid white;
+    background-color: transparent;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.crsl-btn:hover{
+    background-color: white;
+    color: rgba(0, 0, 0, 0.82);
+    text-decoration: none;
+}
+
+/*products*/
+
+.products-container{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.prod-col{
+    padding-right: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+.product-row{
+    background-color: rgba(255, 255, 255, 0.81);
+}
+.product-cell{
+    padding-top: 0.3rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    z-index: 3;
+    border: none;
+
+}
+
+.product-cell:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    z-index: 5;
+}
+
+.product-link:hover{
+    text-decoration: none;
+}
+.cell-mask{
+    padding: 0;
+
+}
+
+.products-card-caption{
+    border: none;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.product-name{
+    font-size: 0.8rem;
+    color: rgba(0,0,0,0.54);
+}
+
+.products-category-name{
+    text-decoration: none;
+    color: rgba(0,0,0,0.54);
+}
+/*end products*/
+
+
+/*categories*/
+.category-card{
+    max-height: 360px;
+    margin-bottom: 0.5rem;
+}
+
+.card-img-overlay{
+    text-align: center;
+}
+
+.card-img-overlay:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.category-name{
+    color: white;
+    z-index: 30;
+}
+/*end categories*/
+
+
+/*advantages*/
+.grey-block{
+    background-color: rgba(234, 236, 239, 0.7);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.advantage-ctnr{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.adv-img{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+.detail-descr{
+    font-size: 0.7rem;
+}
+/*end advantages*/
+
+/*reviews*/
+.review-cell{
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.review-image{
+    border-radius: 1rem;
+    border: 1px solid #D8DBDE;
+}
+
+.review-cell:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    z-index: 5;
+}
+/*end reviews*/
+

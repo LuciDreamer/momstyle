@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>Главная</title>
+{% endblock %}
+
+
+{% block cart %}
+    <a class="cart_link main-color" href="{% url 'cart' %}">
+        <img src="{% static 'png/shopping-bag.png' %}" alt="">
+        <button class="items-count main-color">{{ cart }}</button>
+    </a>
+{% endblock %}
+{% block content %}
+
+    <div class="container crsl-container">
+        <!-- carousel block container centers the block -->
+
+        <div id="crsl" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                    <li data-target="#crsl" data-slide-to="0" class="active"></li>
+                    <li data-target="#crsl" data-slide-to="1"></li>
+                    <li data-target="#crsl" data-slide-to="2"></li>
+                    <li data-target="#crsl" data-slide-to="3"></li>
+              </ol>
+
+              <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="img-fluid w-100 crsl-image"
+                             src="{{ carousel.image.url }}" alt="First slide">
+                        <div class="carousel-caption .d-sm-none .d-md-block">
+                            <h1 class="tagline carousel-tagline">Lorem ipsum dolor sit amet</h1>
+                            <a class="crsl-btn" href="{% url 'catalog' %}">каталог</a>
+                        </div>
+                    </div>
+                    {% for carousel in carousel_no_first %}
+                        <div class="carousel-item">
+                            <img class="img-fluid w-100 crsl-image"
+                                 src="{{ carousel.image.url }}" alt="Second slide">
+                            <div class="carousel-caption .d-sm-none .d-md-block">
+                                <h1 class="tagline carousel-tagline">Lorem ipsum dolor sit amet</h1>
+                                <a class="crsl-btn" href="{% url 'catalog' %}">каталог</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                  <a class="carousel-control-prev" href="#crsl" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#crsl" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                  </a>
+            </div>
+        </div>
+    </div><!-- end carousel block -->
+
+    <div class="container breaker-cont">
+        <hr class="breaker">
+    </div>
+
+
+    <div class="container-fluid products-container">
+        <!-- new products block -->
+        <div class="container">
+
+            <div class="row product-row">
+                {% for new_product in new_products %}
+                    <div class="col-lg-2 col-md-4 col-sm-6 prod-col">
+                        <div class="container-fluid cell-mask">
+                            <a class="product-link" href="{{ new_product.get_absolute_url  }}">
+                                <div class="card product-cell">
+                                    <img class="card-img" src="{{ new_product.image.url }}" alt="">
+                                    <div class="card-caption products-card-caption">
+                                        <span class="product-name">{{ new_product.title }}</span><br>
+                                        <span class="price second_color">{{ new_product.price }} руб.</span><br>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+            <br>
+
+            <div class="container-fluid">
+                <a href="{% url 'catalog' %}">Смотреть весь каталог</a>
+            </div>
+        </div>
+        <!-- end new products block -->
+    </div>
+
+    <div class="container breaker-cont">
+        <hr class="breaker">
+    </div>
+
+
+    <div class="container">
+        <!-- categories block -->
+
+        <div class="row">
+            {% for category in categories %}
+                <div class="col-sm-6 category-colomn">
+                    <a href="{{ category.get_absolute_url }}">
+                        <div class="card category-card">
+                            <img class="card-img card_hover" src="{{ category.image.url }}" alt="Card image">
+                            <div class="card-img-overlay justify-content-center">
+                                <span class="category-name tagline">{{ category.name }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            {% endfor %}
+        </div>
+
+    </div><!-- end categories block -->
+
+    <div class="container breaker-cont">
+        <hr class="breaker">
+    </div>
+
+    <div class="container-fluid grey-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 advantage-ctnr">
+                    <img class="d-block img-fluid adv-img" src="{% static 'png/advantaage/shipping.png' %}" alt="">
+                    <span class="adv-desc">Бесплатная доставка по г. Казань</span><br>
+                    <span class="detail-descr">Aliquam sagittis sapien risus, id dignissim neque tristique vitae.
+                        Vestibulum egestas leo quis eleifend egestas.
+                        Duis eros ipsum, viverra non posuere vel, pharetra vel sem.
+                    </span>
+                </div>
+                <div class="col-sm-4 advantage-ctnr">
+                    <img class="d-block img-fluid adv-img" src="{% static 'png/advantaage/palette.png' %}" alt="">
+                    <span class="adv-desc">Дизайнерская одежда</span><br>
+                    <span class="detail-descr">Aliquam sagittis sapien risus, id dignissim neque tristique vitae.
+                        Vestibulum egestas leo quis eleifend egestas.
+                        Duis eros ipsum, viverra non posuere vel, pharetra vel sem.
+                    </span>
+                </div>
+                <div class="col-sm-4 advantage-ctnr">
+                    <img class="d-block img-fluid adv-img" src="{% static 'png/advantaage/price-tag.png' %}" alt="">
+                    <span class="adv-desc">Приятная стоимость</span><br>
+                    <span class="detail-descr">Aliquam sagittis sapien risus, id dignissim neque tristique vitae.
+                        Vestibulum egestas leo quis eleifend egestas.
+                        Duis eros ipsum, viverra non posuere vel, pharetra vel sem.
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 advantage-ctnr">
+                    <img class="d-block img-fluid adv-img" src="{% static 'png/advantaage/sprout.png' %}" alt="">
+                    <span class="adv-desc">Натуральные материалы</span><br>
+                    <span class="detail-descr">Aliquam sagittis sapien risus, id dignissim neque tristique vitae.
+                        Vestibulum egestas leo quis eleifend egestas.
+                        Duis eros ipsum, viverra non posuere vel, pharetra vel sem.
+                    </span>
+                </div>
+                <div class="col-sm-4 advantage-ctnr">
+                    <img class="d-block img-fluid adv-img" src="{% static 'png/advantaage/handshake.png' %}" alt="">
+                    <span class="adv-desc">Отличный сервис</span><br>
+                    <span class="detail-descr">Aliquam sagittis sapien risus, id dignissim neque tristique vitae.
+                        Vestibulum egestas leo quis eleifend egestas.
+                        Duis eros ipsum, viverra non posuere vel, pharetra vel sem.
+                    </span>
+                </div>
+                <div class="col-sm-4 advantage-ctnr">
+                    <img class="d-block img-fluid adv-img" src="{% static 'png/advantaage/sew.png' %}" alt="">
+                    <span class="adv-desc">Пошив одежды 4-10 дней</span><br>
+                    <span class="detail-descr">Aliquam sagittis sapien risus, id dignissim neque tristique vitae.
+                        Vestibulum egestas leo quis eleifend egestas.
+                        Duis eros ipsum, viverra non posuere vel, pharetra vel sem.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container breaker-cont">
+        <hr class="breaker">
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            {% for review in reviews %}
+                <div class="col-sm-4 review-cell">
+                    <img class="img-fluid review-image" src="{{ review.image.url }}" alt="">
+                </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+            <div class="col-sm-4">
+                <img src="{% static 'png/logo.png' %}" alt="">
+            </div>
+            <div class="col-sm-4">
+                {% for category in categories_all %}
+                    <a href="{{ category.get_absolute_url }}">
+                        {{ category.name }}
+                    </a><br>
+                {% endfor %}
+
+            </div>
+            <div class="col-sm-4">
+                <span>Адрес:</span><br>
+                <span>г. Казань, ул. Мира, 56</span><br>
+                <span>Время работы: 08:00 - 20:00</span><br>
+                <span>7960000363872</span><br>
+                <span>Примерочная:</span><br>
+                <span>г. Казань, ул. Свободы, 48</span><br>
+                <span>Время работы: 08:00 - 20:00</span><br>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+
+{% block js %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

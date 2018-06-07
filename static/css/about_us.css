@@ -1,0 +1,20 @@
+/*main container*/
+/*end main container*/
+
+
+/*gallery*/
+.card-image{
+}
+
+.card-body{
+    display: inline-block;
+    text-align: center;
+}
+
+.controller{
+    cursor: pointer;
+
+}
+/*end gallery*/
+
+

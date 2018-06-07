@@ -1,0 +1,191 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>{{ product.title }}</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/product-detail.css'%}">
+    <link rel="stylesheet" href="{% static 'js/glass/magnify.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="container-fluid main-container">
+    <!-- main container -->
+
+        <div class="container ">
+        <!-- centers content -->
+
+            <div class="row product_container">
+            <!-- product-container: a row that contains products image colomn
+            and description colomn -->
+
+                <div class="col-sm-4 image-container">
+                    <!-- image container: a row -->
+                    <div class="card">
+                        <img class="card-img"
+                             id="product-image"
+                             src="{{ product.image.url }}"
+                             data-magnify-src="{{ product.image.url }}"
+                             alt="Изображение товара">
+                    </div>
+                </div><!-- end image container -->
+
+
+                <div class="col-sm-8 text-container">
+                <!-- description colomn -->
+
+                    <div class="row product-title-cont">
+                        <!-- product title container -->
+
+                        <div class="col-sm-8">
+                            <!-- title and category name colomn -->
+                            <h3>{{ product.title }}</h3>
+                            <span class="ctgr-name">
+                                <a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a>
+                            </span>
+                        </div>
+
+                        <div class="col-sm-4 availability-cont">
+                            <!-- availability colomn -->
+                            <span class="availability">{{ availability }}</span>
+                        </div><!-- end availability colomn -->
+
+                    </div><!-- end product title container -->
+
+                    <div class="container-fluid price-cont">
+                        <!-- price container -->
+
+                        <span class="pr-price second_color">
+                            {% if product.prev_price == None %}
+                                {{ product.price }} руб.
+                            {% else %}
+                                {{ product.price }} руб.
+                                <span class="prev-price"> {{ product.prev_price }}</span>
+                            {% endif %}
+                        </span><br>
+                    </div><!-- price container -->
+
+                    <div class="form-block">
+                        <!-- cart form block -->
+                        <form action="{% url 'add_item' %}" class="cart-form">
+                            {% csrf_token %}
+                            <div class="size-block">
+                                <span>Размер: </span>
+                                <select class="size-input" list="sizes">
+                                    <option>Small</option>
+                                    <option>Medium</option>
+                                    <option>Large</option>
+                                </select>
+                                <!-- size input -->
+                            </div>
+
+                            <div class="quantity-block">
+                                <span>Кол-во:</span>
+                                <input type="number" class="number-input" value="1"><br>
+                                <!-- quantity imput -->
+                            </div>
+                            <br>
+                            <button type="submit" class="cart-btn"
+                                    data-product_id="{{ product.id }}"
+                                    data-name="{{ product.title }}">
+                                в корзину
+                            </button>
+                            <!-- submit button -->
+
+                        </form>
+
+                    </div><!-- end cart form block -->
+
+                    <div class="desc-cont">
+                        <!-- description container: contains description, delivery info and advatages blocks -->
+
+                        <ul class="nav nav-tabs">
+
+                            <a class="description-link nav-link active" tab="description" href="#">Описание</a>
+                            <a class="description-link nav-link" tab="delivery" href="#">Условия доставки</a>
+                            <a class="description-link nav-link" tab="advantages" href="#">Преимущества</a>
+
+                        </ul>
+
+
+                        <div class="desc-items-cont">
+                            <!-- items container -->
+
+                            <div id="description" class="desc-item">
+                                <!-- description block -->
+                                <span class="info">Состав: {{ product.consist }}</span><br>
+                                <span class="info">Рост модели: {{ product.models_height }} см.</span><br>
+                                <br>
+                                <p>{{ product.description }}</p>
+                            </div>
+
+                            <div id="delivery" class="desc-item d-none">
+                                <!-- delivery block -->
+                                <span class="delivery-desc">Доставка по г. Казань: в удобное для вас время</span><br>
+                                <span class="delivery-desc">Стоимость по г. Казань: <span class="free-ship">бесплатно</span></span><br>
+                                <span class="delivery-desc">Доставка по России: Почта России, ТК "СДЭК" </span><br>
+                                <span class="delivery-desc">Время доставки: в среднем 4-10 дней</span><br>
+                                <span class="delivery-desc">Стоимость по России: 200-400 руб.</span>
+                            </div>
+
+                            <div id="advantages" class="desc-item d-none">
+                                <!-- advantages block -->
+                                <span>Дизайнерская одежда</span><br>
+                                <span>Приятная стоимость</span><br>
+                                <span>Натуральные ткани</span><br>
+                                <span>Отличный сервис</span><br>
+                                <span>Пошив на заказ за 3-7 дней</span>
+
+                            </div>
+
+                        </div><!-- end items container -->
+
+                    </div><!-- end description container -->
+
+                </div><!-- end description colomn -->
+
+            </div><!-- end product container -->
+            <br>
+
+            <div class="container suggestions-container">
+                <!-- suggestions container -->
+
+                <span>Похожие товары</span>
+                <!-- tagline -->
+                <hr class="breaker">
+
+                <div class="row">
+                    <!-- suggesting products row -->
+                    {% for suggestion in suggestions %}
+                        <div class="col-sm-2">
+                            <!-- suggesting products cell -->
+
+                            <a class="product-link" href="{{ suggestion.get_absolute_url }}">
+                                <div class="card product-cell">
+                                    <img class="card-img" src="{{ suggestion.image.url }}" alt="">
+                                    <div class="card-caption products-card-caption">
+                                        <span class="product-name">{{ suggestion.title }}</span><br>
+                                        <span class="price">{{ suggestion.price }} руб.</span><br>
+                                    </div>
+                                </div>
+                            </a>
+                        </div><!-- end suggesting product cell -->
+                    {% endfor %}
+
+                </div><!-- eng suggesting products row -->
+
+            </div><!-- suggestions container -->
+
+
+        </div><!-- end content centering -->
+
+    </div><!-- end main container -->
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/glass/jquery.magnify.js' %}"></script>
+    <script src="{% static 'js/detail.js' %}"></script>
+{% endblock %}

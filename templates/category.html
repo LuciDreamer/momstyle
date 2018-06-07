@@ -1,0 +1,24 @@
+{% extends 'catalog.html' %}
+{% load staticfiles %}
+
+{% block products %}
+    <div class="col-sm-9">
+        <!-- products block -->
+        <div class="row">
+            {% for product in key_group %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a class="product-link" href="{{ product.get_absolute_url }}">
+                        <div class="card product-cell">
+                            <img class="card-img" src="{{ product.image.url }}" alt="">
+                            <div class="card-caption products-card-caption">
+                                <span class="product-name">{{ product.title }}</span><br>
+                                <span class="price">{{ product.price }} руб.</span><br>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- end products block -->
+    </div>
+{% endblock %}
