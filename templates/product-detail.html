@@ -116,28 +116,33 @@
 
                             <div id="description" class="desc-item">
                                 <!-- description block -->
-                                <span class="info">Состав: {{ product.consist }}</span><br>
-                                <span class="info">Рост модели: {{ product.models_height }} см.</span><br>
+                                <span class="info"><b>Состав:</b> {{ product.consist }}</span><br>
+                                <span class="info"><b>Рост модели:</b> {{ product.models_height }} см.</span><br>
                                 <br>
                                 <p>{{ product.description }}</p>
                             </div>
 
                             <div id="delivery" class="desc-item d-none">
                                 <!-- delivery block -->
-                                <span class="delivery-desc">Доставка по г. Казань: в удобное для вас время</span><br>
-                                <span class="delivery-desc">Стоимость по г. Казань: <span class="free-ship">бесплатно</span></span><br>
-                                <span class="delivery-desc">Доставка по России: Почта России, ТК "СДЭК" </span><br>
-                                <span class="delivery-desc">Время доставки: в среднем 4-10 дней</span><br>
-                                <span class="delivery-desc">Стоимость по России: 200-400 руб.</span>
+                                <span class="delivery-desc"><b>Доставка по г. Казань:</b> в удобное для вас время</span><br>
+                                <span class="delivery-desc"><b>Стоимость по г. Казань:</b> <span class="free-ship">бесплатно</span></span><br>
+                                <span class="delivery-desc"><b>Доставка по России:</b> Почта России, ТК "СДЭК" </span><br>
+                                <span class="delivery-desc"><b>Время доставки:</b> в среднем 4-10 дней</span><br>
+                                <span class="delivery-desc"><b>Стоимость по России:</b> 200-400 руб.</span>
                             </div>
 
                             <div id="advantages" class="desc-item d-none">
                                 <!-- advantages block -->
-                                <span>Дизайнерская одежда</span><br>
-                                <span>Приятная стоимость</span><br>
-                                <span>Натуральные ткани</span><br>
-                                <span>Отличный сервис</span><br>
-                                <span>Пошив на заказ за 3-7 дней</span>
+                                <img src="{% static 'png/detail-adv/paint-palette.png' %}" alt="">
+                                <span> - Дизайнерская одежда</span><br>
+                                <img src="{% static 'png/detail-adv/low-price.png' %}" alt="">
+                                <span> - Приятная стоимость</span><br>
+                                <img src="{% static 'png/detail-adv/plant.png' %}" alt="">
+                                <span> - Натуральные ткани</span><br>
+                                <img src="{% static 'png/detail-adv/support.png' %}" alt="">
+                                <span> - Отличный сервис</span><br>
+                                <img src="{% static 'png/detail-adv/sewing-machine.png' %}" alt="">
+                                <span> - Пошив на заказ за 3-7 дней</span>
 
                             </div>
 

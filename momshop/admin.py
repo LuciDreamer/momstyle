@@ -32,6 +32,7 @@ class OrderItemTabular(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
+    list_filter = ['closed', 'creation_date']
     inlines = [OrderItemTabular]
 
 

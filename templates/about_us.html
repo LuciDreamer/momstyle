@@ -6,6 +6,7 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/about_us.css' %}">
+    <link rel="stylesheet" href="{% static 'js/gallery/gallery.css' %}">
 {% endblock %}
 
 {% block cart %}
@@ -19,51 +20,26 @@
     <div class="container">
         <!-- content main container: centers everything -->
 
-        <div class="gallery">
+        <div class="container-gallery">
             <!-- gallery -->
             
 
             {% for item in gallery %}
-                <div class="card d-none">
-                    <!-- image and description card -->
-
-                    <img class="card-image" src="{{ item.image.url }}" alt="">
-                    <!-- image -->
-
-                    <div class="card-body">
-                        <!-- image description container-->
-                        <div class="row">
-                            <!-- controllers -->
-
-                            <div class="col-sm-6 controller previous">
-                                <!-- previous slide -->
-                                <img src="{% static 'png/prev.png' %}" alt="Предыдущий">
-                            </div>
-                            
-                            <div class="col-sm-6 controller next">
-                                <!-- next slide -->
-                                <img src="{% static 'png/next.png' %}" alt="Следующий">
-                            </div>
-                        </div>
-                        
-                        <h6>{{ item.description }}</h6>
-                        
-                    </div><!-- end image description container-->
-
-                </div><!-- end image and description card -->
+                <img src="{{ item.image.url }}" alt="">
             {% endfor %}
-
-            <div class="about_us">
-                <!-- 'about us' text container-->
-                
-                <p>{{ description.description }}</p>
-            </div><!-- end 'about us' text container-->
+        
         
         </div><!-- end gallery -->
+        <div class="about_us">
+            <!-- 'about us' text container-->
+            <p>{{ description.description }}</p>
+            
+        </div><!-- end 'about us' text container-->
     
     </div><!-- end content main container -->
 {% endblock %}
 
 {% block js %}
+    <script src="{% static 'js/gallery/gallery.js' %}"></script>
     <script src="{% static 'js/about_us.js' %}"></script>
 {% endblock %}

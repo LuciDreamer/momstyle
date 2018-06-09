@@ -2,13 +2,19 @@
 .disp_none{
     display: none;
 }
+
 .question{
     display: block;
-    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    color: rgba(0,0,0,0.54);
+}
+
+.question:hover{
+    text-decoration: none;
 }
 
 .answer{
-    padding: 1rem;
-    border: 1px solid #D8DBDE;
+    background-color: rgba(255, 255, 255, 0.71);
+    margin-left: 2rem;
     margin-bottom: 0;
 }

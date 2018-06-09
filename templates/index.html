@@ -212,9 +212,10 @@
                 <img src="{% static 'png/logo.png' %}" alt="">
             </div>
             <div class="col-sm-4">
+                <span>Категории:</span><br>
                 {% for category in categories_all %}
-                    <a href="{{ category.get_absolute_url }}">
-                        {{ category.name }}
+                    <a class="footer-category" href="{{ category.get_absolute_url }}">
+                         - {{ category.name }}
                     </a><br>
                 {% endfor %}
 
